@@ -46,7 +46,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             {/* GitHub link */}
             <a
-              href="https://github.com"
+              href="https://github.com/saivigneshdhamerla/DocMint---File-Converter"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 rounded-xl bg-gray-100 dark:bg-dark-secondary hover:bg-gray-200 dark:hover:bg-dark-tertiary transition-all hover:scale-105 active:scale-95"
