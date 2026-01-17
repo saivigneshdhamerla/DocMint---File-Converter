@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Sun, Moon, FileType2, Github } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -32,13 +32,19 @@ export default function Header() {
               { id: 'office-to-pdf', name: 'Office to PDF' },
               { id: 'unlock-pdf', name: 'Unlock' },
             ].map((tool) => (
-              <Link
+              <NavLink
                 key={tool.id}
                 to={`/convert/${tool.id}`}
-                className="px-4 py-2 rounded-xl text-sm font-bold text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-white/80 dark:hover:bg-dark-tertiary transition-all duration-300 hover:shadow-sm"
+                className={({ isActive }) => `
+                  px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 hover:shadow-sm
+                  ${isActive 
+                    ? 'bg-white dark:bg-dark-tertiary text-primary-600 dark:text-primary-400 shadow-md scale-105' 
+                    : 'text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-white/80 dark:hover:bg-dark-tertiary'
+                  }
+                `}
               >
                 {tool.name}
-              </Link>
+              </NavLink>
             ))}
           </nav>
 

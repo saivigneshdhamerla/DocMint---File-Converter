@@ -181,7 +181,7 @@ export default function ConverterPage() {
         <p className="text-gray-500 dark:text-gray-400 mb-6">
           The conversion tool you're looking for doesn't exist.
         </p>
-        <Link to="/" className="btn-primary inline-flex items-center gap-2">
+        <Link to="/#tools" className="btn-primary inline-flex items-center gap-2">
           <ArrowLeft className="w-5 h-5" />
           Back to Tools
         </Link>
@@ -205,10 +205,10 @@ export default function ConverterPage() {
         : 0;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8 animate-fade-in">
+    <div key={toolId} className="max-w-3xl mx-auto px-4 py-8 animate-slide-up">
       {/* Back button */}
       <Link 
-        to="/"
+        to="/#tools"
         className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 mb-6 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />

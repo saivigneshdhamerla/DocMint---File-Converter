@@ -1,4 +1,6 @@
-import { Sparkles, Shield, Zap, Clock } from 'lucide-react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Sparkles, Shield, Zap, Clock, ChevronDown } from 'lucide-react';
 import ToolsGrid from './ToolsGrid';
 import StatsCounter from './StatsCounter';
 
@@ -26,10 +28,21 @@ const features = [
 ];
 
 export default function HomePage() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.getElementById(hash.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [hash]);
+
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden min-h-[80vh] flex items-center">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-accent/5 dark:from-dark dark:via-dark-secondary dark:to-dark-tertiary" />
         
@@ -47,6 +60,18 @@ export default function HomePage() {
               Transform PDFs, documents with our free, secure, and lightning-fast converter. 
               No registration required.
             </p>
+
+            <div className="flex justify-center mt-10">
+              <a 
+                href="#tools" 
+                className="group flex flex-col items-center gap-2 text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors duration-300"
+              >
+                <span className="text-sm font-medium tracking-wider uppercase">Explore Tools</span>
+                <div className="p-2 rounded-full bg-white dark:bg-dark-secondary shadow-lg group-hover:shadow-primary-500/20 group-hover:-translate-y-1 transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                  <ChevronDown className="w-5 h-5 animate-bounce" />
+                </div>
+              </a>
+            </div>
 
             {/* Features grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
@@ -78,7 +103,7 @@ export default function HomePage() {
       </section> */}
 
       {/* Tools Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <section id="tools" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-24">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-3">
             Choose Your Conversion Tool
