@@ -83,15 +83,15 @@ export default function DownloadSection({
     <div className="card p-6 md:p-8 animate-fade-in">
       {/* Success header */}
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 rounded-full bg-green-100 dark:bg-green-900/30">
-          <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400" />
+        <div className="p-2.5 rounded-full bg-green-100 dark:bg-green-900/30">
+          <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
         </div>
         <div>
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-            Conversion Complete!
+          <h3 className="text-base font-semibold text-gray-800 dark:text-white">
+            Conversion Complete
           </h3>
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            Your file is ready for download
+            Ready to download
           </p>
         </div>
       </div>
@@ -119,7 +119,7 @@ export default function DownloadSection({
           ? 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400' 
           : isExpiringSoon 
             ? 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400' 
-            : 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
+            : 'bg-gray-100 dark:bg-dark-tertiary text-gray-700 dark:text-gray-300'
         }
       `}>
         <Clock className="w-5 h-5" />
@@ -137,8 +137,9 @@ export default function DownloadSection({
           onClick={handleDownload}
           disabled={isExpired}
           className={`
-            flex-1 flex items-center justify-center gap-2
+            flex-1 flex items-center justify-center gap-2 px-6 py-4 text-base font-semibold
             ${isExpired ? 'btn-secondary opacity-50 cursor-not-allowed' : 'btn-primary'}
+            min-h-[48px]
           `}
         >
           <Download className="w-5 h-5" />
@@ -148,17 +149,17 @@ export default function DownloadSection({
         <button
           onClick={handleShare}
           disabled={isExpired}
-          className="btn-secondary flex items-center justify-center gap-2"
+          className="btn-secondary flex items-center justify-center gap-2 px-4 py-3 text-sm min-h-[48px]"
         >
           {copied ? (
             <>
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              Copied!
+              <CheckCircle className="w-4 h-4 text-black dark:text-white" />
+              Copied
             </>
           ) : (
             <>
-              <Share2 className="w-5 h-5" />
-              Share Link
+              <Share2 className="w-4 h-4" />
+              Share
             </>
           )}
         </button>
@@ -167,9 +168,9 @@ export default function DownloadSection({
       {/* Convert another button */}
       <button
         onClick={onConvertAnother}
-        className="w-full mt-4 flex items-center justify-center gap-2 py-3 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+        className="w-full mt-4 flex items-center justify-center gap-2 py-2.5 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
       >
-        <RefreshCw className="w-5 h-5" />
+        <RefreshCw className="w-4 h-4" />
         Convert Another File
       </button>
     </div>

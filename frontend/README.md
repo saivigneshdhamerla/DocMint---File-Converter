@@ -1,13 +1,38 @@
-# DocMint - Free Online File Conversion
+# DocMint v2.0 - Free Online File Conversion
 
 A premium, modern React web application for high-quality file conversions using Firebase and the iLovePDF API. Completely free to use with no registration required.
 
-![DocMint Preview](https://via.placeholder.com/800x400?text=DocMint+File+Converter)
+![DocMint Preview](https://via.placeholder.com/800x400?text=DocMint+v2.0+File+Converter)
+
+## 🎉 What's New in v2.0
+
+### ✨ Enhanced UI/UX
+- **Modernized Design System** - Refined monochrome theme with premium aesthetics
+- **Dark Mode Optimization** - Improved contrast and readability in dark mode
+- **Smoother Animations** - Enhanced transitions and micro-interactions
+- **Better Mobile Experience** - Improved responsive layouts for all screen sizes
+
+### 🚀 New Features
+- **OCR Language Selector** - Multi-select dropdown with 30+ languages for improved text recognition accuracy
+  - Search functionality to find languages quickly
+  - Tag-based display with easy add/remove
+  - Supports: English, Spanish, French, German, Japanese, Chinese, Korean, Arabic, Hindi, and 20+ more
+- **Enhanced Error Messages** - Actionable error feedback with specific troubleshooting suggestions
+- **Improved Split PDF** - Fixed "All pages" extraction mode
+- **Better Compression** - Optimized compression quality mapping
+
+### 🔧 Technical Improvements
+- Streamlined project structure (removed duplicate configurations)
+- Improved Firebase deployment configuration
+- Enhanced iLovePDF API integration with proper authentication
+- Better options mapping between frontend and backend
+
+---
 
 ## ✨ Key Features
 
 - **12+ Professional Tools**: Office to PDF, PDF to JPG, PDF OCR, Add Page Numbers, Image to PDF, Compress, Merge, Split, Rotate, Protect, Unlock, and Watermark.
-- **Modern UX/UI**: Sleek "Glassmorphism" design with a premium navigation bar and smooth animations.
+- **Modern UX/UI**: Sleek monochrome design with premium navigation and smooth animations.
 - **No Registration**: Start converting immediately without an account.
 - **Privacy First**: Files are auto-deleted from our servers after **1 hour**. No manual access to your data.
 - **Direct Downloads**: Files save directly to your machine with a clean naming convention: `{original-name}-docmint.{ext}`.
@@ -17,11 +42,11 @@ A premium, modern React web application for high-quality file conversions using 
 
 ## 🛠 Tech Stack
 
-- **Frontend**: React 18, Vite, Tailwind CSS (Custom Design System), Lucide Icons.
-- **Backend**: Firebase Cloud Functions (Node.js 18).
-- **Database**: Cloud Firestore (Rate limits, Stats, Feedback).
-- **Storage**: Firebase Cloud Storage (Secure temporary storage).
-- **API**: iLovePDF REST API.
+- **Frontend**: React 18, Vite, Tailwind CSS (Custom Design System), Lucide Icons
+- **Backend**: Firebase Cloud Functions (Node.js 20)
+- **Database**: Cloud Firestore (Rate limits, Stats, Feedback)
+- **Storage**: Firebase Cloud Storage (Secure temporary storage)
+- **API**: iLovePDF REST API
 
 ## 📂 Project Structure
 
@@ -44,7 +69,7 @@ DocMint/
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+
+- Node.js 20+
 - Firebase CLI (`npm install -g firebase-tools`)
 - iLovePDF API keys (Public & Secret)
 
@@ -57,15 +82,41 @@ cd frontend && npm install
 cd ../functions && npm install
 ```
 
-### 2. Run Locally
+### 2. Configuration
+Create `.env` files:
+
+**frontend/.env**
+```env
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+**functions/.env**
+```env
+ILOVEPDF_PUBLIC_KEY=your_public_key
+ILOVEPDF_SECRET_KEY=your_secret_key
+RATE_LIMIT_MAX=50
+```
+
+### 3. Run Locally
 ```bash
 # Start frontend
 cd frontend && npm run dev
-
-# Start Firebase Emulators (optional)
-firebase emulators:start
 ```
 Open `http://localhost:5173` to view the app.
+
+### 4. Deploy
+```bash
+# Deploy functions (from root directory)
+firebase deploy --only functions
+
+# Deploy hosting (from frontend directory)
+cd frontend && npm run build && firebase deploy --only hosting
+```
 
 ## 📑 Available Tools & Tasks
 
@@ -73,7 +124,7 @@ Open `http://localhost:5173` to view the app.
 |------|----|-------------|
 | **Office to PDF** | `office-to-pdf` | Convert Word, Excel, PPT to PDF |
 | **PDF to JPG** | `pdf-to-jpg` | Extract pages as high-quality images |
-| **PDF OCR** | `pdf-ocr` | Make scanned PDFs searchable |
+| **PDF OCR** | `pdf-ocr` | Make scanned PDFs searchable (with language selection) |
 | **Add Page Numbers** | `add-page-numbers` | Customize page numbering |
 | **Image to PDF** | `image-to-pdf` | Convert JPG, PNG, TIFF to PDF |
 | **Compress PDF** | `compress-pdf` | Reduce file size without losing quality |
@@ -91,9 +142,19 @@ Open `http://localhost:5173` to view the app.
 - **Data Protection**: We do not read, share, or sell your file content.
 - **Rate Limiting**: 50 conversions per 24 hours per IP to ensure service availability for everyone.
 
+## 📝 Version History
+
+| Version | Release | Highlights |
+|---------|---------|------------|
+| **v2.0** | Jan 2026 | Enhanced UI/UX, OCR language selector, improved error handling, bug fixes |
+| **v1.0** | Dec 2025 | Initial release with 12+ conversion tools |
+
 ## 🤝 Feedback & Support
+
 Have a suggestion or found a bug? Use our **Contact Page** to send feedback directly to our team. Feedback is stored securely in Firestore and reviewed regularly.
 
 ---
-**DocMint** - Simplified File Management.
+
+**DocMint v2.0** - Simplified File Management.
+
 *Live Link* - https://docmint.netlify.app/

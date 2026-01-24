@@ -42,6 +42,7 @@ export const convertFile = functions
       rotation: options.RotationSelector || options.rotation,
       quality: options.QualitySelector || options.quality,
       password: options.PasswordInput || options.password,
+      ocrLanguage: options.LanguageSelector || options.ocrLanguage,
     };
 
     console.log('Conversion request:', { conversionType, options, normalizedOptions });

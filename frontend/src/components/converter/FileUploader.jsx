@@ -64,12 +64,12 @@ export default function FileUploader({
       <div
         {...getRootProps()}
         className={`
-          relative border-2 border-dashed rounded-2xl p-8 md:p-12
+          relative border-2 border-dashed rounded-2xl p-10 md:p-14
           transition-all duration-300 cursor-pointer
           ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
           ${isDragActive 
-            ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20' 
-            : 'border-gray-300 dark:border-gray-600 hover:border-primary-400 dark:hover:border-primary-500'
+            ? 'border-black dark:border-white bg-gray-50 dark:bg-gray-900' 
+            : 'border-gray-300 dark:border-gray-600 hover:border-black dark:hover:border-white'
           }
           ${error 
             ? 'border-red-400 bg-red-50 dark:bg-red-900/20' 
@@ -80,29 +80,28 @@ export default function FileUploader({
         <input {...getInputProps()} />
         
         <div className="flex flex-col items-center text-center">
-          {/* Upload icon */}
           <div className={`
             p-4 rounded-full mb-4
             ${isDragActive 
-              ? 'bg-primary-100 dark:bg-primary-800/30' 
+              ? 'bg-gray-200 dark:bg-gray-800' 
               : 'bg-gray-100 dark:bg-dark-tertiary'
             }
           `}>
             <Upload className={`
               w-8 h-8
               ${isDragActive 
-                ? 'text-primary-500' 
+                ? 'text-black dark:text-white' 
                 : 'text-gray-400 dark:text-gray-500'
               }
             `} />
           </div>
 
           {/* Text */}
-          <p className="text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">
-            {isDragActive ? 'Drop your file here' : 'Drag & drop your file here'}
+          <p className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-2">
+            {isDragActive ? 'Drop file here' : 'Drop file or click to browse'}
           </p>
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-            or click to browse
+            Maximum 100MB
           </p>
 
           {/* Accepted formats */}
@@ -142,8 +141,8 @@ export default function FileUploader({
               className="flex items-center justify-between p-4 rounded-xl bg-gray-50 dark:bg-dark-tertiary border border-gray-200 dark:border-gray-700"
             >
               <div className="flex items-center gap-3 min-w-0">
-                <div className="p-2 rounded-lg bg-primary-100 dark:bg-primary-900/30">
-                  <File className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+                <div className="p-2 rounded-lg bg-white dark:bg-black border-2 border-gray-200 dark:border-neutral-border">
+                  <File className="w-5 h-5 text-black dark:text-white" />
                 </div>
                 <div className="min-w-0">
                   <p className="font-medium text-gray-800 dark:text-white truncate">

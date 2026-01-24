@@ -11,8 +11,8 @@ export default function Footer() {
           {/* Logo & tagline */}
           <div className="flex flex-col items-center md:items-start gap-2">
             <Link to="/" className="flex items-center gap-2 group">
-              <div className="p-1.5 rounded-lg bg-gradient-to-br from-primary-600 to-accent group-hover:scale-110 transition-transform">
-                <FileType2 className="w-4 h-4 text-white" />
+              <div className="p-1.5 rounded-lg bg-white dark:bg-black border-2 border-black dark:border-white group-hover:scale-110 transition-transform">
+                <FileType2 className="w-4 h-4 text-black dark:text-white" />
               </div>
               <span className="font-bold text-gray-800 dark:text-white tracking-tight">DocMint</span>
             </Link>
@@ -25,30 +25,31 @@ export default function Footer() {
           <div className="flex items-center gap-6 text-sm">
             <Link 
               to="/privacy" 
-              className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors"
+              className="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors hover:underline"
             >
               Privacy Policy
             </Link>
             <Link 
               to="/terms" 
-              className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors"
+              className="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors hover:underline"
             >
               Terms of Service
             </Link>
             <Link 
               to="/contact" 
-              className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors"
+              className="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors hover:underline"
             >
               Contact
             </Link>
+
+            <span>© {currentYear}</span>
           </div>
 
           {/* Copyright */}
-          <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
-            <span>Made with</span>
-            <Heart className="w-4 h-4 text-accent fill-accent" />
+          {/* <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
+            
             <span>© {currentYear}</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

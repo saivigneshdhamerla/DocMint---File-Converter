@@ -25,11 +25,10 @@ export default function ProgressBar({
 
           return (
             <div key={s.id} className="flex flex-col items-center flex-1">
-              {/* Icon */}
               <div className={`
                 relative p-3 rounded-full mb-2 transition-all duration-500
                 ${isActive 
-                  ? 'bg-primary-500 shadow-lg shadow-primary-500/30' 
+                  ? 'bg-black dark:bg-white' 
                   : isComplete 
                     ? 'bg-green-500' 
                     : 'bg-gray-200 dark:bg-dark-tertiary'
@@ -37,24 +36,25 @@ export default function ProgressBar({
               `}>
                 <Icon className={`
                   w-5 h-5 transition-colors
-                  ${isActive || isComplete 
-                    ? 'text-white' 
-                    : 'text-gray-400 dark:text-gray-500'
+                  ${isActive 
+                    ? 'text-white dark:text-black' 
+                    : isComplete 
+                      ? 'text-white' 
+                      : 'text-gray-400 dark:text-gray-500'
                   }
                   ${isActive && s.id === 'processing' ? 'animate-spin-slow' : ''}
                 `} />
                 
                 {/* Pulse effect for active stage */}
                 {isActive && (
-                  <div className="absolute inset-0 rounded-full bg-primary-500 animate-ping opacity-25" />
+                  <div className="absolute inset-0 rounded-full bg-black dark:bg-white animate-ping opacity-25" />
                 )}
               </div>
 
-              {/* Label */}
               <span className={`
                 text-sm font-medium transition-colors
                 ${isActive 
-                  ? 'text-primary-600 dark:text-primary-400' 
+                  ? 'text-black dark:text-white' 
                   : isComplete 
                     ? 'text-green-600 dark:text-green-400' 
                     : 'text-gray-400 dark:text-gray-500'
@@ -89,7 +89,7 @@ export default function ProgressBar({
               ? 'bg-red-500' 
               : stage === 'complete' 
                 ? 'bg-green-500' 
-                : 'bg-gradient-to-r from-primary-500 to-primary-600'
+                : 'bg-black dark:bg-white'
             }
           `}
           style={{ width: `${progress}%` }}

@@ -29,7 +29,7 @@ export default function ErrorMessage({
           <ul className="space-y-2">
             {suggestions.map((s, i) => (
               <li key={i} className="flex gap-2 text-sm text-gray-600 dark:text-gray-300">
-                <span className="text-primary-500 font-bold">•</span>
+                <span className="text-black dark:text-white font-bold">•</span>
                 {s}
               </li>
             ))}

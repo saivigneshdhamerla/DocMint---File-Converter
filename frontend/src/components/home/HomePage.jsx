@@ -8,22 +8,22 @@ const features = [
   {
     icon: Zap,
     title: 'Lightning Fast',
-    description: 'Convert files in seconds with our optimized processing',
+    description: 'Convert files in seconds',
   },
   {
     icon: Shield,
     title: '100% Secure',
-    description: 'Files are automatically deleted after 1 hour',
+    description: 'Auto-deleted after 1 hour',
   },
   {
     icon: Sparkles,
     title: 'Free Forever',
-    description: 'No registration, no hidden fees, completely free',
+    description: 'No registration required',
   },
   {
     icon: Clock,
     title: '24/7 Available',
-    description: 'Access our tools anytime, anywhere',
+    description: 'Always ready to convert',
   },
 ];
 
@@ -42,52 +42,42 @@ export default function HomePage() {
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="relative overflow-hidden min-h-[80vh] flex items-center">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-accent/5 dark:from-dark dark:via-dark-secondary dark:to-dark-tertiary" />
-        
-        {/* Decorative elements */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-400/20 dark:bg-primary-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 dark:bg-accent/10 rounded-full blur-3xl" />
+      <section className="relative overflow-hidden min-h-[60vh] flex items-center">
+        {/* Solid background */}
+        <div className="absolute inset-0 bg-white dark:bg-black" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
-              <span className="text-gray-900 dark:text-white">Convert Files </span>
-              <span className="text-gradient">Instantly</span>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+          <div className="text-center max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight">
+              <span className="text-gray-900 dark:text-white">Convert Files Instantly</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Transform PDFs, documents with our free, secure, and lightning-fast converter. 
-              No registration required.
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-neutral-text mb-10 font-light leading-relaxed">
+              Free, secure, instant file conversion.
             </p>
 
-            <div className="flex justify-center mt-10">
-              <a 
-                href="#tools" 
-                className="group flex flex-col items-center gap-2 text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors duration-300"
-              >
-                <span className="text-sm font-medium tracking-wider uppercase">Explore Tools</span>
-                <div className="p-2 rounded-full bg-white dark:bg-dark-secondary shadow-lg group-hover:shadow-primary-500/20 group-hover:-translate-y-1 transition-all duration-300 border border-gray-100 dark:border-gray-800">
-                  <ChevronDown className="w-5 h-5 animate-bounce" />
-                </div>
-              </a>
-            </div>
+            <a 
+              href="#tools" 
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold bg-black dark:bg-white text-white dark:text-black rounded-lg hover:scale-105 transition-transform duration-200 min-h-[44px]"
+            >
+              Start Converting
+              <ChevronDown className="w-5 h-5" />
+            </a>
 
             {/* Features grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
               {features.map((feature, index) => (
                 <div 
                   key={feature.title}
-                  className="flex flex-col items-center p-4 animate-slide-up"
+                  className="flex flex-col items-center animate-slide-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="p-3 rounded-xl bg-white dark:bg-dark-secondary shadow-lg mb-3">
-                    <feature.icon className="w-6 h-6 text-primary-500" />
+                  <div className="p-3 rounded-xl bg-white dark:bg-black border-2 border-gray-200 dark:border-neutral-border mb-3">
+                    <feature.icon className="w-7 h-7 text-black dark:text-white" strokeWidth={2} />
                   </div>
-                  <h3 className="font-semibold text-gray-800 dark:text-white text-sm">
+                  <h3 className="font-bold text-gray-900 dark:text-white text-sm mb-1">
                     {feature.title}
                   </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-tight">
                     {feature.description}
                   </p>
                 </div>
@@ -116,69 +106,68 @@ export default function HomePage() {
       </section>
 
       {/* Trust & Features Section */}
-      <section className="bg-gray-50 dark:bg-dark-secondary/50 py-20">
+      <section className="bg-gray-50 dark:bg-dark-secondary/50 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-              Why Choose Our Converter?
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">
+              Why Choose DocMint?
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-              We make file conversion simple, fast, and safe. 
-              No catch, no cost—just great results.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <div className="group p-6 rounded-2xl transition-all duration-300 hover:bg-white dark:hover:bg-dark-tertiary hover:shadow-xl border border-transparent hover:border-primary-100 dark:hover:border-primary-900/30">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-50 dark:bg-primary-900/20 text-primary-500 mb-6 group-hover:scale-110 transition-transform">
-                <Shield className="w-8 h-8" />
+            <div className="group p-8 rounded-2xl bg-white dark:bg-dark border-2 border-gray-200 dark:border-neutral-border hover:border-black dark:hover:border-white hover:-translate-y-1 transition-all duration-300 h-full">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-2xl bg-white dark:bg-black border-2 border-gray-200 dark:border-neutral-border group-hover:border-black dark:group-hover:border-white flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+                  <Shield className="w-8 h-8 text-black dark:text-white" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Safe & Private</h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Secure connections. Auto-delete after 1 hour.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Safe & Private</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Your files are protected. We use secure connections and 
-                permanently delete everything you upload after 1 hour.
-              </p>
             </div>
 
             {/* Feature 2 */}
-            <div className="group p-6 rounded-2xl transition-all duration-300 hover:bg-white dark:hover:bg-dark-tertiary hover:shadow-xl border border-transparent hover:border-primary-100 dark:hover:border-primary-900/30">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-50 dark:bg-primary-900/20 text-primary-500 mb-6 group-hover:scale-110 transition-transform">
-                <Sparkles className="w-8 h-8" />
+            <div className="group p-8 rounded-2xl bg-white dark:bg-dark border-2 border-gray-200 dark:border-neutral-border hover:border-black dark:hover:border-white hover:-translate-y-1 transition-all duration-300 h-full">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-2xl bg-white dark:bg-black border-2 border-gray-200 dark:border-neutral-border group-hover:border-black dark:group-hover:border-white flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+                  <Sparkles className="w-8 h-8 text-black dark:text-white" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Great Quality</h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Perfect conversions. No messy layouts.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Great Quality</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                We make sure your files look exactly like the original. No messy layouts 
-                or missing text—just perfect conversions every time.
-              </p>
             </div>
 
             {/* Feature 3 */}
-            <div className="group p-6 rounded-2xl transition-all duration-300 hover:bg-white dark:hover:bg-dark-tertiary hover:shadow-xl border border-transparent hover:border-primary-100 dark:hover:border-primary-900/30">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-50 dark:bg-primary-900/20 text-primary-500 mb-6 group-hover:scale-110 transition-transform">
-                <Zap className="w-8 h-8" />
+            <div className="group p-8 rounded-2xl bg-white dark:bg-dark border-2 border-gray-200 dark:border-neutral-border hover:border-black dark:hover:border-white hover:-translate-y-1 transition-all duration-300 h-full">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-2xl bg-white dark:bg-black border-2 border-gray-200 dark:border-neutral-border group-hover:border-black dark:group-hover:border-white flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+                  <Zap className="w-8 h-8 text-black dark:text-white" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Simple & Free</h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Upload, convert, download. Always free.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Simple & Free</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                No need to sign up or pay anything. Just upload your file, 
-                convert it, and download your result in seconds.
-              </p>
             </div>
           </div>
 
-          {/* Verification Badges */}
-          <div className="mt-20 pt-10 border-t border-gray-200 dark:border-gray-800 flex flex-wrap justify-center items-center gap-6 md:gap-12 opacity-80 transition-all duration-500 text-[10px] tracking-[0.2em] font-black">
-            <div className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-dark-tertiary rounded-full shadow-sm border border-gray-100 dark:border-gray-800 shine-silver">
-              <Shield className="w-3 h-3 text-primary-500" />
-              <span className="text-gray-600 dark:text-gray-400 uppercase">Secure SSL</span>
+          {/* Trust badges */}
+          <div className="mt-20 pt-12 border-t border-gray-200 dark:border-gray-800 flex flex-wrap justify-center items-center gap-8 opacity-50">
+            <div className="shine flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-dark-tertiary rounded-full border border-gray-200 dark:border-gray-800">
+              <Shield className="w-4 h-4 text-black dark:text-white" />
+              <span className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Secure SSL</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-dark-tertiary rounded-full shadow-sm border border-gray-100 dark:border-gray-800 shine-silver">
-              <Shield className="w-3 h-3 text-primary-500" />
-              <span className="text-gray-600 dark:text-gray-400 uppercase">Privacy First</span>
+            <div className="shine flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-dark-tertiary rounded-full border border-gray-200 dark:border-gray-800">
+              <Shield className="w-4 h-4 text-black dark:text-white" />
+              <span className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Privacy First</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-dark-tertiary rounded-full shadow-sm border border-gray-100 dark:border-gray-800 shine-silver">
-              <Shield className="w-3 h-3 text-primary-500" />
-              <span className="text-gray-600 dark:text-gray-400 uppercase">Fast Servers</span>
+            <div className="shine flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-dark-tertiary rounded-full border border-gray-200 dark:border-gray-800">
+              <Shield className="w-4 h-4 text-black dark:text-white" />
+              <span className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Fast Servers</span>
             </div>
           </div>
         </div>

@@ -38,6 +38,7 @@ export const CONVERSION_TOOLS = [
     mimeTypes: ['application/pdf'],
     ilovepdfTask: 'pdfocr',
     color: 'purple',
+    optionsComponent: 'LanguageSelector',
   },
   {
     id: 'add-page-numbers',
@@ -161,69 +162,21 @@ export const SUPPORTED_EXTENSIONS = [
   'jpg', 'jpeg', 'png', 'tiff', 'tif'
 ];
 
-// Color mapping for tool cards
-export const COLORS = {
-  blue: {
-    bg: 'bg-blue-50 dark:bg-blue-900/20',
-    text: 'text-blue-600 dark:text-blue-400',
-    border: 'border-blue-200 dark:border-blue-800',
-    gradient: 'from-blue-500 to-blue-600',
-  },
-  green: {
-    bg: 'bg-green-50 dark:bg-green-900/20',
-    text: 'text-green-600 dark:text-green-400',
-    border: 'border-green-200 dark:border-green-800',
-    gradient: 'from-green-500 to-green-600',
-  },
-  purple: {
-    bg: 'bg-purple-50 dark:bg-purple-900/20',
-    text: 'text-purple-600 dark:text-purple-400',
-    border: 'border-purple-200 dark:border-purple-800',
-    gradient: 'from-purple-500 to-purple-600',
-  },
-  orange: {
-    bg: 'bg-orange-50 dark:bg-orange-900/20',
-    text: 'text-orange-600 dark:text-orange-400',
-    border: 'border-orange-200 dark:border-orange-800',
-    gradient: 'from-orange-500 to-orange-600',
-  },
-  red: {
-    bg: 'bg-red-50 dark:bg-red-900/20',
-    text: 'text-red-600 dark:text-red-400',
-    border: 'border-red-200 dark:border-red-800',
-    gradient: 'from-red-500 to-red-600',
-  },
-  indigo: {
-    bg: 'bg-indigo-50 dark:bg-indigo-900/20',
-    text: 'text-indigo-600 dark:text-indigo-400',
-    border: 'border-indigo-200 dark:border-indigo-800',
-    gradient: 'from-indigo-500 to-indigo-600',
-  },
-  pink: {
-    bg: 'bg-pink-50 dark:bg-pink-900/20',
-    text: 'text-pink-600 dark:text-pink-400',
-    border: 'border-pink-200 dark:border-pink-800',
-    gradient: 'from-pink-500 to-pink-600',
-  },
-  cyan: {
-    bg: 'bg-cyan-50 dark:bg-cyan-900/20',
-    text: 'text-cyan-600 dark:text-cyan-400',
-    border: 'border-cyan-200 dark:border-cyan-800',
-    gradient: 'from-cyan-500 to-cyan-600',
-  },
-  yellow: {
-    bg: 'bg-yellow-50 dark:bg-yellow-900/20',
-    text: 'text-yellow-600 dark:text-yellow-400',
-    border: 'border-yellow-200 dark:border-yellow-800',
-    gradient: 'from-yellow-500 to-yellow-600',
-  },
-  teal: {
-    bg: 'bg-teal-50 dark:bg-teal-900/20',
-    text: 'text-teal-600 dark:text-teal-400',
-    border: 'border-teal-200 dark:border-teal-800',
-    gradient: 'from-teal-500 to-teal-600',
-  },
+// Monochrome theme - single color for all tools
+const DEFAULT_COLOR = {
+  bg: 'bg-white dark:bg-black',
+  text: 'text-black dark:text-white',
+  border: 'border-gray-200 dark:border-neutral-border',
+  gradient: 'from-black to-black',
 };
+
+// Color mapping for tool cards - returns same monochrome style for all
+export const COLORS = new Proxy({}, {
+  get: () => DEFAULT_COLOR
+});
+
+// Helper function to get tool color (always returns monochrome)
+export const getToolColor = () => DEFAULT_COLOR;
 
 // Get tool by ID
 export function getToolById(toolId) {

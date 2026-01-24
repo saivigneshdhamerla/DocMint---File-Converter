@@ -49,7 +49,7 @@ export function useConversion() {
     }
 
     return {
-      message: 'Conversion failed. Please try again.',
+      message: msg || 'Conversion failed. Please try again.',
       suggestions: [
         'Check your internet connection.',
         'Try refreshing the page and re-uploading the file.',

@@ -20,7 +20,10 @@ export class ILovePDFClient {
   async getAuthToken() {
     const response = await axios.post(
       `${BASE_URL}/auth`,
-      { public_key: this.publicKey },
+      { 
+        public_key: this.publicKey,
+        secret_key: this.secretKey
+      },
       { timeout: 10000 }
     );
     
@@ -93,13 +96,22 @@ export class ILovePDFClient {
   async processTask(server, taskId, token, files, taskType, options = {}) {
     const taskOptions = this.getTaskOptions(taskType, options);
     
+    // For rotate task, add rotation to each file object
+    const filesWithOptions = files.map(f => {
+      const fileObj = {
+        server_filename: f.serverFilename,
+        filename: f.filename,
+      };
+      if (taskType === 'rotate') {
+        fileObj.rotate = options.rotation || 90;
+      }
+      return fileObj;
+    });
+
     const processData = {
       task: taskId,
       tool: taskType,
-      files: files.map(f => ({
-        server_filename: f.serverFilename,
-        filename: f.filename,
-      })),
+      files: filesWithOptions,
       ...taskOptions,
     };
 
@@ -178,15 +190,22 @@ export class ILovePDFClient {
         };
       
       case 'split':
+        // If mode is 'all' or not specified, use 'pages' mode (extract all pages)
+        if (!options.pageRange || options.pageRange.mode === 'all') {
+          return {
+            split_mode: 'pages',
+          };
+        }
+        
+        // Otherwise use custom range
         return {
           split_mode: 'ranges',
-          ranges: options.pageRange?.range || '1',
+          ranges: options.pageRange.range || '1',
         };
       
       case 'rotate':
-        return {
-          rotation: options.rotation || 90,
-        };
+        // Rotation is handled per-file in processTask
+        return {};
       
       case 'watermark':
         return {
@@ -201,8 +220,10 @@ export class ILovePDFClient {
         };
       
       case 'pdfocr':
+        // iLovePDF API requires ocr_languages as an array
+        const language = options.ocrLanguage || 'eng';
         return {
-          ocr_languages: 'eng', // English by default
+          ocr_languages: Array.isArray(language) ? language : [language],
         };
       
       case 'pagenumber':
@@ -234,6 +255,9 @@ export class ILovePDFClient {
           password: protectPassword,
         };
       
+      case 'officepdf':
+        return {};
+
       default:
         return {};
     }

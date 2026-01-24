@@ -13,6 +13,7 @@ import QualitySelector from './ConversionOptions/QualitySelector';
 import RotationSelector from './ConversionOptions/RotationSelector';
 import WatermarkSettings from './ConversionOptions/WatermarkSettings';
 import PasswordInput from './ConversionOptions/PasswordInput';
+import LanguageSelector from './ConversionOptions/LanguageSelector';
 
 import { useFileUpload } from '../../hooks/useFileUpload';
 import { useConversion } from '../../hooks/useConversion';
@@ -24,6 +25,7 @@ const optionComponents = {
   RotationSelector,
   WatermarkSettings,
   PasswordInput,
+  LanguageSelector,
 };
 
 export default function ConverterPage() {
@@ -217,8 +219,8 @@ export default function ConverterPage() {
 
       {/* Tool header */}
       <div className="flex items-center gap-4 mb-8">
-        <div className={`p-4 rounded-2xl ${colors.bg} ${colors.border} border`}>
-          <IconComponent className={`w-8 h-8 ${colors.text}`} strokeWidth={1.5} />
+        <div className={`p-4 rounded-2xl bg-white dark:bg-black border-2 border-gray-200 dark:border-neutral-border`}>
+          <IconComponent className={`w-8 h-8 text-black dark:text-white`} strokeWidth={1.5} />
         </div>
         <div>
           <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
