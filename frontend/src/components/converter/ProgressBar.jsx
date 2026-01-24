@@ -62,19 +62,6 @@ export default function ProgressBar({
               `}>
                 {s.label}
               </span>
-
-              {/* Connector line */}
-              {index < stages.length - 1 && (
-                <div className="absolute top-6 left-1/2 w-full h-0.5 -translate-y-1/2 hidden md:block">
-                  <div className={`
-                    h-full transition-all duration-500
-                    ${index < currentStageIndex 
-                      ? 'bg-green-500' 
-                      : 'bg-gray-200 dark:bg-dark-tertiary'
-                    }
-                  `} />
-                </div>
-              )}
             </div>
           );
         })}
