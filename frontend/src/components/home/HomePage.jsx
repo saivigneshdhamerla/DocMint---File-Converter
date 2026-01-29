@@ -155,6 +155,22 @@ export default function HomePage() {
             </div>
           </div>
 
+        {/* About Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-6">
+              About DocMint File Converter
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+              DocMint is a free online file converter that allows users to convert
+              documents and images quickly without installing any software.
+              It supports PDF, Word, Excel, and image formats with secure processing.
+            </p>
+          </div>
+        </div>
+      </section>
+
           {/* Trust badges */}
           <div className="mt-20 pt-12 border-t border-gray-200 dark:border-gray-800 flex flex-wrap justify-center items-center gap-8 opacity-50">
             <div className="shine flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-dark-tertiary rounded-full border border-gray-200 dark:border-gray-800">
