@@ -8,6 +8,9 @@ dist/
 build/
 .next/
 
+# Netlify files (not needed for Chrome extension)
+_redirects
+
 # Local env files
 .env
 .env.local
