@@ -68,7 +68,7 @@ export default function HomePage() {
               {features.map((feature, index) => (
                 <div 
                   key={feature.title}
-                  className="flex flex-col items-center animate-slide-up"
+                  className="flex flex-col items-center animate-slide-up select-none"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="p-3 rounded-xl bg-white dark:bg-black border-2 border-gray-200 dark:border-neutral-border mb-3">
@@ -93,7 +93,7 @@ export default function HomePage() {
       </section> */}
 
       {/* Tools Section */}
-      <section id="tools" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-24">
+      <section id="tools" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-11 scroll-mt-20">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-3">
             Choose Your Conversion Tool
@@ -172,7 +172,7 @@ export default function HomePage() {
       </section>
 
           {/* Trust badges */}
-          <div className="mt-20 pt-12 border-t border-gray-200 dark:border-gray-800 flex flex-wrap justify-center items-center gap-8 opacity-50">
+          <div className="mt-20 pt-12 border-t border-gray-200 dark:border-gray-800 flex flex-wrap justify-center items-center gap-8 opacity-50 select-none">
             <div className="shine flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-dark-tertiary rounded-full border border-gray-200 dark:border-gray-800">
               <Shield className="w-4 h-4 text-black dark:text-white" />
               <span className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Secure SSL</span>

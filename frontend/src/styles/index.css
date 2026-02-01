@@ -29,22 +29,30 @@ body {
   @apply bg-gray-50 text-gray-900 dark:bg-dark dark:text-white transition-colors duration-300;
 }
 
-/* Custom Scrollbar */
+/* Hide Scrollbar but keep functionality */
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 0px;
+  height: 0px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-dark-secondary;
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400 dark:bg-gray-500;
+  display: none;
 }
 
 /* Monochrome utilities */
@@ -58,6 +66,7 @@ body {
   }
 }
 
+
 /* Animation delays */
 .animation-delay-100 {
   animation-delay: 100ms;
@@ -70,6 +79,24 @@ body {
 .animation-delay-300 {
   animation-delay: 300ms;
 }
+
+/* Fade in animation for 404 page */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* File dropzone styles */
 .dropzone-active {
