@@ -3,6 +3,7 @@ import Layout from './components/layout/Layout';
 import HomePage from './components/home/HomePage';
 import ConverterPage from './components/converter/ConverterPage';
 import DirectDownloadPage from './components/download/DirectDownloadPage';
+import FileViewerPage from './components/viewer/FileViewerPage';
 import PrivacyPolicy from './components/legal/PrivacyPolicy';
 import TermsOfService from './components/legal/TermsOfService';
 import Contact from './components/legal/Contact';
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/convert/:toolId" element={<ConverterPage />} />
         <Route path="/download" element={<DirectDownloadPage />} />
+        <Route path="/view" element={<FileViewerPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/contact" element={<Contact />} />

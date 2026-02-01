@@ -14,6 +14,14 @@ A premium, modern React web application for high-quality file conversions using 
   - Beautiful modal interface with monochrome QR codes
   - Perfect for quick mobile transfers without cloud services
 
+### 🔗 Branded File Sharing
+- **File Viewer Page** - Share files with clean, branded URLs (`yoursite.com/view?url=...&name=...`)
+  - Preview PDFs, images, and text files directly in browser
+  - Professional-looking viewer with header and download button
+  - Better than raw storage URLs when sharing with others
+  - Supports: PDF, JPG, PNG, GIF, WebP, SVG, TXT
+  - Automatic fallback to download for unsupported types
+
 ### 🎨 UI Polish
 - **Home Page Search** - Find conversion tools quickly with search bar and category filters
 - **404 Page Enhancement** - Single-viewport error page with tool suggestions
@@ -50,7 +58,11 @@ A premium, modern React web application for high-quality file conversions using 
 ## ✨ Key Features
 
 - **12+ Professional Tools**: Office to PDF, PDF to JPG, PDF OCR, Add Page Numbers, Image to PDF, Compress, Merge, Split, Rotate, Protect, Unlock, and Watermark.
-- **QR Code Downloads**: Scan a QR code to instantly download files to your phone - no cloud uploads needed!
+- **Triple Download Options**: 
+  - Desktop Download Button (instant save to computer)
+  - QR Code (scan to download directly to phone)
+  - Branded Share Links (view files in browser before download)
+- **File Viewer**: Preview PDFs, images, and text files with branded URLs (`yoursite.com/view`)
 - **Modern UX/UI**: Sleek monochrome design with premium navigation and smooth animations.
 - **Tool Discovery**: Search bar and category filters to find the perfect conversion tool quickly.
 - **No Registration**: Start converting immediately without an account.
@@ -75,6 +87,11 @@ DocMint/
 ├── frontend/          # React Vite application
 │   ├── src/
 │   │   ├── components/  # Modal, UI, Converter, Legal components
+│   │   │   ├── converter/   # File conversion UI
+│   │   │   ├── download/    # Direct download page
+│   │   │   ├── viewer/      # File viewer page
+│   │   │   ├── home/        # Homepage with tool grid
+│   │   │   └── ...
 │   │   ├── hooks/       # Custom hooks (File Upload, Conversion)
 │   │   ├── services/    # Firebase & API integration
 │   │   ├── utils/       # Constants and helper functions
@@ -166,7 +183,7 @@ cd frontend && npm run build && firebase deploy --only hosting
 
 | Version | Release | Highlights |
 |---------|---------|------------|
-| **v2.1** | Feb 2026 | QR code downloads, home page search/filters, UI polish, hidden scrollbars |
+| **v2.1** | Feb 2026 | QR code downloads, file viewer page, home page search/filters, UI polish |
 | **v2.0** | Jan 2026 | Enhanced UI/UX, OCR language selector, improved error handling, bug fixes |
 | **v1.0** | Dec 2025 | Initial release with 12+ conversion tools |
 

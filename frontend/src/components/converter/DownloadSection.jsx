@@ -68,12 +68,47 @@ export default function DownloadSection({
     }
 
     try {
-      await navigator.clipboard.writeText(downloadUrl);
+      // Create branded viewer page URL (allows viewing before download)
+      const currentOrigin = window.location.origin;
+      const viewerPageUrl = new URL('/view', currentOrigin);
+      viewerPageUrl.searchParams.set('url', downloadUrl);
+      viewerPageUrl.searchParams.set('name', fileName);
+      const shareUrl = viewerPageUrl.toString();
+      
+      // Try modern clipboard API first
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(shareUrl);
+      } else {
+        // Fallback for older browsers or insecure contexts
+        const textArea = document.createElement('textarea');
+        textArea.value = shareUrl;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        if (!successful) {
+          throw new Error('Copy command failed');
+        }
+      }
+      
       setCopied(true);
       toast.success('Link copied to clipboard!');
       setTimeout(() => setCopied(false), 3000);
     } catch (error) {
-      toast.error('Failed to copy link');
+      console.error('Copy failed:', error);
+      toast.error('Failed to copy link. Please copy manually.');
+      // Show alert with link as last resort
+      const currentOrigin = window.location.origin;
+      const viewerPageUrl = new URL('/view', currentOrigin);
+      viewerPageUrl.searchParams.set('url', downloadUrl);
+      viewerPageUrl.searchParams.set('name', fileName);
+      prompt('Copy this link:', viewerPageUrl.toString());
     }
   };
 
