@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Download, Clock, Share2, CheckCircle, Copy, RefreshCw } from 'lucide-react';
+import QRCodeModal from './QRCodeModal';
 import { formatCountdown, truncateFilename } from '../../utils/formatters';
 import { formatFileSize } from '../../utils/fileValidation';
 import { FILE_EXPIRATION_MS } from '../../utils/constants';
@@ -131,6 +132,7 @@ export default function DownloadSection({
         </span>
       </div>
 
+
       {/* Action buttons */}
       <div className="flex flex-col sm:flex-row gap-3">
         <button
@@ -145,6 +147,12 @@ export default function DownloadSection({
           <Download className="w-5 h-5" />
           Download File
         </button>
+
+        <QRCodeModal 
+          downloadUrl={downloadUrl}
+          isExpired={isExpired}
+          fileName={fileName}
+        />
 
         <button
           onClick={handleShare}

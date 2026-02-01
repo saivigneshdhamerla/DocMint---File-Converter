@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import HomePage from './components/home/HomePage';
 import ConverterPage from './components/converter/ConverterPage';
+import DirectDownloadPage from './components/download/DirectDownloadPage';
 import PrivacyPolicy from './components/legal/PrivacyPolicy';
 import TermsOfService from './components/legal/TermsOfService';
 import Contact from './components/legal/Contact';
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/convert/:toolId" element={<ConverterPage />} />
+        <Route path="/download" element={<DirectDownloadPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/contact" element={<Contact />} />

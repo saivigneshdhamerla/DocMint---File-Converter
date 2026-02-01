@@ -1,8 +1,26 @@
-# DocMint v2.0 - Free Online File Conversion
+# DocMint v2.1 - Free Online File Conversion
 
 A premium, modern React web application for high-quality file conversions using Firebase and the iLovePDF API. Completely free to use with no registration required.
 
 ![DocMint Preview](https://via.placeholder.com/800x400?text=DocMint+v2.0+File+Converter)
+
+## 🎉 What's New in v2.1
+
+### 📱 Mobile Download Innovation
+- **QR Code Downloads** - Scan a QR code to instantly download converted files to your mobile device
+  - Direct download to phone (no preview, no extra clicks)
+  - Automatic filename preservation
+  - Respects 1-hour file expiration
+  - Beautiful modal interface with monochrome QR codes
+  - Perfect for quick mobile transfers without cloud services
+
+### 🎨 UI Polish
+- **Home Page Search** - Find conversion tools quickly with search bar and category filters
+- **404 Page Enhancement** - Single-viewport error page with tool suggestions
+- **Hidden Scrollbars** - Cleaner interface while maintaining full scroll functionality
+- **Refined Spacing** - Optimized layouts for better visual hierarchy
+
+---
 
 ## 🎉 What's New in v2.0
 
@@ -32,7 +50,9 @@ A premium, modern React web application for high-quality file conversions using 
 ## ✨ Key Features
 
 - **12+ Professional Tools**: Office to PDF, PDF to JPG, PDF OCR, Add Page Numbers, Image to PDF, Compress, Merge, Split, Rotate, Protect, Unlock, and Watermark.
+- **QR Code Downloads**: Scan a QR code to instantly download files to your phone - no cloud uploads needed!
 - **Modern UX/UI**: Sleek monochrome design with premium navigation and smooth animations.
+- **Tool Discovery**: Search bar and category filters to find the perfect conversion tool quickly.
 - **No Registration**: Start converting immediately without an account.
 - **Privacy First**: Files are auto-deleted from our servers after **1 hour**. No manual access to your data.
 - **Direct Downloads**: Files save directly to your machine with a clean naming convention: `{original-name}-docmint.{ext}`.
@@ -42,7 +62,7 @@ A premium, modern React web application for high-quality file conversions using 
 
 ## 🛠 Tech Stack
 
-- **Frontend**: React 18, Vite, Tailwind CSS (Custom Design System), Lucide Icons
+- **Frontend**: React 18, Vite, Tailwind CSS (Custom Design System), Lucide Icons, QRCode.js
 - **Backend**: Firebase Cloud Functions (Node.js 20)
 - **Database**: Cloud Firestore (Rate limits, Stats, Feedback)
 - **Storage**: Firebase Cloud Storage (Secure temporary storage)
@@ -146,6 +166,7 @@ cd frontend && npm run build && firebase deploy --only hosting
 
 | Version | Release | Highlights |
 |---------|---------|------------|
+| **v2.1** | Feb 2026 | QR code downloads, home page search/filters, UI polish, hidden scrollbars |
 | **v2.0** | Jan 2026 | Enhanced UI/UX, OCR language selector, improved error handling, bug fixes |
 | **v1.0** | Dec 2025 | Initial release with 12+ conversion tools |
 
@@ -155,6 +176,6 @@ Have a suggestion or found a bug? Use our **Contact Page** to send feedback dire
 
 ---
 
-**DocMint v2.0** - Simplified File Management.
+**DocMint v2.1** - Simplified File Management.
 
 *Live Link* - https://docmint.netlify.app/
