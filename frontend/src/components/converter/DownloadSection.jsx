@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Download, Clock, Share2, CheckCircle, Copy, RefreshCw } from 'lucide-react';
+import { Download, Clock, Share2, CheckCircle, Copy, RefreshCw, Puzzle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import QRCodeModal from './QRCodeModal';
 import { formatCountdown, truncateFilename } from '../../utils/formatters';
 import { formatFileSize } from '../../utils/fileValidation';
 import { FILE_EXPIRATION_MS } from '../../utils/constants';
 import toast from 'react-hot-toast';
+import { useExtensionDetection } from '../../hooks/useExtensionDetection';
 
 export default function DownloadSection({ 
   downloadUrl, 
@@ -15,6 +17,7 @@ export default function DownloadSection({
 }) {
   const [timeRemaining, setTimeRemaining] = useState(0);
   const [copied, setCopied] = useState(false);
+  const isExtensionInstalled = useExtensionDetection();
 
   useEffect(() => {
     const updateTimer = () => {
@@ -207,6 +210,27 @@ export default function DownloadSection({
           )}
         </button>
       </div>
+
+      {/* Extension Promo */}
+      {!isExtensionInstalled && (
+      <div className="mt-6 p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-900/30 flex flex-col sm:flex-row items-center justify-between gap-4 animate-fade-in">
+        <div>
+          <h4 className="text-sm font-bold text-blue-900 dark:text-blue-100 flex items-center justify-center sm:justify-start gap-2">
+            <Puzzle className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            Convert files 10x faster!
+          </h4>
+          <p className="text-xs text-blue-700 dark:text-blue-300 mt-1 text-center sm:text-left">
+            Get our free Edge Extension to convert directly from your browser toolbar.
+          </p>
+        </div>
+        <Link 
+          to="/extension" 
+          className="whitespace-nowrap px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg transition-colors w-full sm:w-auto text-center"
+        >
+          Get Extension
+        </Link>
+      </div>
+      )}
 
       {/* Convert another button */}
       <button

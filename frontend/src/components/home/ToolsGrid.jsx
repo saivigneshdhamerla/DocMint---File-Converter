@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Search } from 'lucide-react';
+import { Search, Puzzle, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ToolCard from './ToolCard';
 import { CONVERSION_TOOLS } from '../../utils/constants';
+import { useExtensionDetection } from '../../hooks/useExtensionDetection';
 
 const categories = [
   { id: 'all', label: 'All Tools' },
@@ -13,6 +15,7 @@ const categories = [
 export default function ToolsGrid() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const isExtensionInstalled = useExtensionDetection();
 
   // Filter tools based on search query and category
   const filteredTools = CONVERSION_TOOLS.filter((tool) => {
@@ -82,6 +85,43 @@ export default function ToolsGrid() {
               <ToolCard tool={tool} />
             </div>
           ))}
+          
+          {/* Inject promo card at the end if showing all tools and no search */}
+          {selectedCategory === 'all' && searchQuery === '' && !isExtensionInstalled && (
+            <Link
+              to="/extension"
+              className="animate-fade-in group relative p-6 bg-transparent rounded-2xl transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(255,255,255,0.04)] hover:-translate-y-1 overflow-hidden border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-solid hover:border-black dark:hover:border-white flex flex-col justify-between min-h-[160px] h-full"
+              style={{ animationDelay: `${filteredTools.length * 50}ms` }}
+            >
+              {/* Subtle background glow effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-transparent dark:from-dark-tertiary dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-gray-100 dark:bg-dark-secondary rounded-xl flex items-center justify-center text-black dark:text-white border border-gray-200 dark:border-gray-700 group-hover:scale-105 transition-transform duration-300">
+                    <Puzzle className="w-6 h-6" />
+                  </div>
+                  <span className="px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase bg-black text-white dark:bg-white dark:text-black rounded-full shadow-sm">
+                    Free
+                  </span>
+                </div>
+                
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 leading-tight transition-colors">
+                    Edge Extension
+                  </h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                    Convert files instantly from your browser toolbar. No tab switching required.
+                  </p>
+                </div>
+                
+                <div className="flex items-center text-sm font-semibold text-gray-900 dark:text-white group-hover:translate-x-1 transition-transform duration-300 mt-auto">
+                  Get the Add-on
+                  <ArrowRight className="w-4 h-4 ml-1.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                </div>
+              </div>
+            </Link>
+          )}
         </div>
       ) : (
         <div className="text-center py-12">

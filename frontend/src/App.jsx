@@ -9,6 +9,7 @@ import TermsOfService from './components/legal/TermsOfService';
 import Contact from './components/legal/Contact';
 import NotFound from './components/error/NotFound';
 import ScrollToTop from './components/layout/ScrollToTop';
+import ExtensionPromo from './components/extension/ExtensionPromo';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/extension" element={<ExtensionPromo />} />
         {/* Catch-all route for 404 - must be last */}
         <Route path="*" element={<NotFound />} />
       </Routes>

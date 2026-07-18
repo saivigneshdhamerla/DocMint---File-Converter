@@ -1,10 +1,12 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Sun, Moon, FileType2, Github } from 'lucide-react';
+import { Sun, Moon, FileType2, Github, Puzzle } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import { useExtensionDetection } from '../../hooks/useExtensionDetection';
 
 export default function Header() {
   const { isDark, toggleTheme } = useTheme();
   const location = useLocation();
+  const isExtensionInstalled = useExtensionDetection();
   const isHomePage = location.pathname === '/';
 
   return (
@@ -49,6 +51,24 @@ export default function Header() {
                   {tool.name}
                 </NavLink>
               ))}
+
+              {/* Separator */}
+              {!isExtensionInstalled && <div className="w-px h-6 bg-gray-300 dark:bg-gray-600 mx-1 rounded-full"></div>}
+
+              {/* Extension Link with Badge */}
+              {!isExtensionInstalled && (
+              <Link 
+                to="/extension"
+                className="px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/40 flex items-center gap-2 relative"
+              >
+                <Puzzle className="w-4 h-4" />
+                Extension
+                <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500 border border-white dark:border-black"></span>
+                </span>
+              </Link>
+              )}
             </nav>
           )}
 
